@@ -8,7 +8,9 @@
 
 (api_key는 뉴욕타임즈 developers 가입하면 받음)
 
-개발 내용
+
+
+개발 내용 정리
 
 해야할 일 - 기사 리스트업(API), 모달을 통한 Filter(API), 즐겨찾기 기능 및 해당 정보 로컬 스토리지 저장 기능(Redux persist), 무한 스크롤 기능 구현, 헤더/푸터/리스트/모달 UI 구현
 
@@ -27,6 +29,7 @@
 - UI 디테일 확인 및 수정
 - 에러 테스트
 
+
 미확인 요소 및 논의 요소
 
 - 데이트피커를 현재 input type='date'로 구현했는데, 따로 datepicker 컴포넌트를 구현해야 하는지?
@@ -35,7 +38,6 @@
 - API 호출에 로드가 좀 걸리는 편이라 로딩중 CSS로 구현함.
 - 피그마에서 Dev 모드로 볼 수 없어서 정확한 margin padding을 확인 못하여 임의로 조정함.
 - NYTIMES API의 fq를 통한 Headline 검색에 제한 사항이 조금 있었음
-
   1. headline 객체에 print_headline을 기준으로 검색하는데, 그 부분이 비어있는 경우가 있어서, 그런 경우엔 리스트에 main을 표시하도록 함
   2. 공백 단위의 검색이 됨, fulltext search가 안되는 듯함.
 
