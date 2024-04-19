@@ -6,7 +6,7 @@ import { formatNations } from "@/src/utils/formatNations";
 
 const FilteringBar = ({ filterings, onOpenModal }: { filterings: FilterElement; onOpenModal: () => void }) => {
   return (
-    <header className="fixed top-0 header flex gap-2 items-center w-full h-[60px] border-b border-neutral text-neutral-dark py-3 px-5  bg-white">
+    <header className="fixed top-0 header flex gap-2 items-center w-full h-[60px] border-b border-neutral text-neutral-dark py-3 px-5  bg-white max-w-[560px]">
       <button className={`flex items-center whitespace-nowrap h-[34px] py-[6px] px-[12px] border rounded-[30px] text-sm ${filterings?.headline ? "border-primary text-primary" : "border-neutral"}`} onClick={onOpenModal}>
         <SearchIcon color={filterings?.headline ? "#3478F6" : "#C4C4C4"} />
         {filterings?.headline ? (filterings?.headline.length > 6 ? `${filterings.headline.slice(0, 6)}..` : filterings.headline) : "전체 헤드라인"}

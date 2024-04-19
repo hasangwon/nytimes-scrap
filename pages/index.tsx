@@ -34,8 +34,8 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <main className="relaitve flex  fixed bottom-0 bg-neutral-light w-full h-full pt-[60px] pb-[85px]">
-      <div className="w-full bg-neutral-light max-w-[560px] border border-y-0">
+    <main className="relaitve flex justify-center fixed bottom-0 bg-neutral-light w-full h-full pt-[60px] pb-[85px]">
+      <div className="w-full bg-neutral-light max-w-[560px]">
         <ToastContainer />
         {menuIndex === 1 ? <HomeScreen /> : <ScrapScreen />}
         <Menu menuIndex={menuIndex} onChangeMenuIndex={onChangeMenuIndex} />

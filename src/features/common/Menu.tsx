@@ -4,7 +4,7 @@ import ScrapIcon from "./icon/ScrapIcon";
 
 const Menu = ({ menuIndex, onChangeMenuIndex }: { menuIndex: number; onChangeMenuIndex: (number: number) => void }) => {
   return (
-    <footer className="fixed bottom-0 w-full h-[85px] bg-black flex items-center rounded-[30px]">
+    <footer className="fixed bottom-0 w-full h-[85px] bg-black flex items-center rounded-[30px] max-w-[560px]">
       <button onClick={() => onChangeMenuIndex(1)} className="flex-1 flex justify-center items-center h-full">
         <div className="flex flex-col gap-1">
           <HomeIcon color={menuIndex === 1 ? "white" : "#6D6D6D"} />
