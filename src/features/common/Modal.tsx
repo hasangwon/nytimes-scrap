@@ -65,7 +65,7 @@ const Modal = ({ onCancelClick, onNextClick }: ModalProps) => {
                 {label === "국가" && (
                   <div className="flex flex-wrap mt-2">
                     {nations.map((el, idx) => (
-                      <button key={idx} className={`text-sm font-normal border border-gray-200 rounded-full px-3 py-1.5 m-1 ${selectedNations.includes(el.en) ? "bg-[#82B0F4] text-white" : "bg-white text-gray-700"}`} onClick={() => handleNationClick(el.en)}>
+                      <button key={idx} className={`text-sm font-normal border border-gray-200 rounded-full px-3 py-1.5 m-1 ${selectedNations.includes(el.en) ? "bg-primary-light text-white" : "bg-white text-gray-700"}`} onClick={() => handleNationClick(el.en)}>
                         {el.nation}
                       </button>
                     ))}
@@ -73,7 +73,7 @@ const Modal = ({ onCancelClick, onNextClick }: ModalProps) => {
                 )}
               </div>
             ))}{" "}
-            <button className="w-full h-[60px] bg-[#3478F6] rounded-2xl text-white font-semibold" onClick={handleNextClick}>
+            <button className="w-full h-[60px] bg-primary rounded-2xl text-white font-semibold" onClick={handleNextClick}>
               {"필터 적용하기"}
             </button>
           </div>

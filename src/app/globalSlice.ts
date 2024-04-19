@@ -4,6 +4,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 export const globalSlice = createSlice({
   name: "global",
   initialState: {
+    IsGlobalLoading: false,
     homeArticles: [] as Article[],
     homeCurrentPage: 0,
     homeFilter: {
@@ -18,6 +19,9 @@ export const globalSlice = createSlice({
     },
   },
   reducers: {
+    setIsGlobalLoading: (state, action: PayloadAction<boolean>) => {
+      state.IsGlobalLoading = action.payload;
+    },
     setHomeFilter: (state, action: PayloadAction<FilterElement>) => {
       state.homeFilter = action.payload;
     },
@@ -33,6 +37,6 @@ export const globalSlice = createSlice({
   },
 });
 
-export const { setHomeFilter, setHomeArticles, setHomeCurrentPage, setScrapFilter } = globalSlice.actions;
+export const { setIsGlobalLoading, setHomeFilter, setHomeArticles, setHomeCurrentPage, setScrapFilter } = globalSlice.actions;
 
 export default globalSlice.reducer;

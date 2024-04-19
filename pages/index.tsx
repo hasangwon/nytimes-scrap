@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <main className="flex justify-center w-full h-full overflow-hidden bg-white">
-      <div className={`flex w-full min-h-screen flex-col items-center max-w-[560px] overflow-hidden bg-[#F0F1F4] border border-y-0`}>
+      <div className={`flex w-full min-h-screen flex-col items-center max-w-[560px] overflow-hidden bg-neutral-light border border-y-0`}>
         {menuIndex === 1 ? <HomeScreen /> : <ScrapScreen />}
         <Menu menuIndex={menuIndex} onChangeMenuIndex={onChangeMenuIndex} />
       </div>

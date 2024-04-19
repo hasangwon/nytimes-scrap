@@ -4,7 +4,6 @@ import dayjs from "dayjs";
 const url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
 export const getLoadArticles = async (page: number, keyword: string, date: string, glocations: string) => {
-  console.log(keyword, "asdasdsadas");
   let params = {
     page: page,
     "api-key": process.env.NEXT_PUBLIC_NYTIMES_API_KEY,
@@ -22,15 +21,12 @@ export const getLoadArticles = async (page: number, keyword: string, date: strin
     params.end_date = date;
   }
 
-  console.log(params, "params");
-
   try {
     const response = await axios.get(url, { params });
     const array = response.data.response.docs || [];
-    console.log(array, "getList");
     return array;
   } catch (error) {
     console.log("message", error);
-    return [];
+    return null;
   }
 };
