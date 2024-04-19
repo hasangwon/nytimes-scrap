@@ -41,7 +41,7 @@ export const useHomeState = () => {
           articleRef.current.scrollTop = 0;
         }
         setIsLoading(false);
-        if (isLoading) toast.error(`스크랩 삭제되었습니다.`, { autoClose: 1000 });
+        if (isLoading) toast.error(`요청이 너무 많습니다. 잠시 후 시도해주세요.(API 제한)`, { autoClose: 1000 });
         return;
       }
       setIsLoading(false);
