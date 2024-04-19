@@ -42,5 +42,7 @@
   
   -> 마지막 기사의 정확한 시간으로 그 다음 기사를 가져오는 쿼리가 없어서, 중복 기사는 리스트에 업데이트 하지 않는 것으로 반영함.
 
-![스크린샷 2024-04-19 오후 7 19 44](https://github.com/hasangwon/nytimes-scrap/assets/75872687/f0b4d15f-7498-478c-a26c-3a58cfbd4060)
-![스크린샷 2024-04-19 오후 7 21 24](https://github.com/hasangwon/nytimes-scrap/assets/75872687/5864f880-2dfc-47eb-9cba-9d8ff8e1bd4e)
+### 결과
+<img src="https://github.com/hasangwon/nytimes-scrap/assets/75872687/8b7a0b7e-da04-4f6d-b09b-ca0d9dd29ae7" width="250"/>
+<img src="https://github.com/hasangwon/nytimes-scrap/assets/75872687/4124992c-79a7-4bac-a9c1-227bb8a5dd2f" width="250"/>
+<img src="https://github.com/hasangwon/nytimes-scrap/assets/75872687/348a5884-0f6b-4a00-a05c-9298e2125bea" width="250"/>
