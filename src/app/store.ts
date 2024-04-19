@@ -9,13 +9,13 @@ const rootReducer = combineReducers({
   scrap: scrapReducer,
 });
 
-const scrapPersistConfig = {
-  key: "scrap",
+const persistConfig = {
+  key: "root",
   storage,
-  whitelist: ["scraps"],
+  whitelist: ["scrap"],
 };
 
-const persistedReducer = persistReducer(scrapPersistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -26,6 +26,7 @@ export const store = configureStore({
       },
     }),
 });
+
 export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;

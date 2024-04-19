@@ -1,6 +1,5 @@
 import { QueryParams } from "@/types/type";
 import axios from "axios";
-import dayjs from "dayjs";
 const url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
 export const getLoadArticles = async (page: number, keyword: string, date: string, glocations: string) => {

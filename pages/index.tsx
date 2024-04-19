@@ -1,32 +1,42 @@
-import { getLoadArticles } from "@/src/app/globalService";
-import { setHomeArticles } from "@/src/app/globalSlice";
+import { getLoadArticles } from "@/src/service/globalService";
+import { setHomeArticles, setIsGlobalLoading, setMenuIndex } from "@/src/app/globalSlice";
+import { RootState } from "@/src/app/store";
 import Menu from "@/src/features/common/Menu";
 import HomeScreen from "@/src/features/home/HomeScreen";
 import ScrapScreen from "@/src/features/scrap/ScrapScreen";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
+  const menuIndex = useSelector((state: RootState) => state.global.menuIndex);
   const dispatch = useDispatch();
-  const [menuIndex, setMenuIndex] = React.useState<number>(1);
 
   const onChangeMenuIndex = (index: number) => {
-    setMenuIndex(index);
+    dispatch(setMenuIndex(index));
   };
 
   useEffect(() => {
-    const fetchFirstArticles = () => {
-      getLoadArticles(0, "", "", "").then((articles) => {
+    const fetchFirstArticles = async () => {
+      dispatch(setIsGlobalLoading(true));
+      try {
+        const articles = await getLoadArticles(0, "", "", "");
         dispatch(setHomeArticles(articles));
-      });
+      } catch (error) {
+        console.error("Failed to fetch articles:", error);
+      } finally {
+        dispatch(setIsGlobalLoading(false));
+      }
     };
 
     fetchFirstArticles();
-  }, []);
+  }, [dispatch]);
 
   return (
-    <main className="flex justify-center w-full h-full overflow-hidden bg-white">
-      <div className={`flex w-full min-h-screen flex-col items-center max-w-[560px] overflow-hidden bg-neutral-light border border-y-0`}>
+    <main className="relaitve flex  fixed bottom-0 bg-neutral-light w-full h-full pt-[60px] pb-[85px]">
+      <div className="w-full bg-neutral-light max-w-[560px] border border-y-0">
+        <ToastContainer />
         {menuIndex === 1 ? <HomeScreen /> : <ScrapScreen />}
         <Menu menuIndex={menuIndex} onChangeMenuIndex={onChangeMenuIndex} />
       </div>

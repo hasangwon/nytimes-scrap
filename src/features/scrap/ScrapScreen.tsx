@@ -1,25 +1,19 @@
 import React, { useState } from "react";
 import FilteringBar from "../common/FilteringBar";
+import Modal from "../common/Modal";
+import Articles from "../common/Articles";
+import { useScrapFilter } from "@/src/app/hooks";
+import EmptyScrap from "./EmptyScrap";
 
 const ScrapScreen = () => {
-  const [isShownModal, setIsShownModal] = useState(true);
+  const [isShownModal, setIsShownModal] = useState(false);
+  const { scrapFilter, innerScrapArticles, onFilteringClick } = useScrapFilter();
 
-  const onFilteringClick = (headline: string, date: string, nations: string[]) => {
-    const nationsToStriong = nations.map((item) => `"${item}"`).join(" OR ");
-
-    console.log(headline, date, nationsToStriong, "asd");
-  };
   return (
     <>
-      <FilteringBar
-        onOpenModal={() => setIsShownModal(true)}
-        filterings={{
-          headline: "",
-          date: "",
-          nations: [],
-        }}
-      />
-      <article className="flex flex-col h-[calc(100vh-145px)] overflow-y-auto"></article>
+      {isShownModal && <Modal onCancelClick={() => setIsShownModal(false)} onNextClick={onFilteringClick} />}
+      <FilteringBar filterings={scrapFilter} onOpenModal={() => setIsShownModal(true)} />
+      <article className="flex flex-col h-[calc(100vh-145px)] overflow-y-auto min-w-[280px] w-full">{innerScrapArticles.length === 0 ? <EmptyScrap /> : <Articles articles={innerScrapArticles} />}</article>
     </>
   );
 };

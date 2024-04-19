@@ -4,6 +4,7 @@ export type Article = {
   pub_date: string;
   web_url: string;
   byline: { original: string };
+  keywords: { name: string; value: string; rank: number; major: string }[];
 };
 
 export type FilterElement = {
