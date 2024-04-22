@@ -21,8 +21,8 @@ const Modal = ({ onCancelClick, onNextClick }: ModalProps) => {
   const { headline, date, selectedNations, handleHeadlineInput, handleNationClick, handleNextClick, setDate } = useModalState(onNextClick, onCancelClick);
 
   return (
-    <div className={`fixed inset-0 h-full bg-black bg-opacity-50 flex justify-center items-center p-5 z-10`} onClick={onCancelClick}>
-      <div className="max-w-[560px] bg-white rounded-2xl p-5 w-full flex flex-col gap-10" onClick={(e) => e.stopPropagation()}>
+    <div className={`fixed inset-0 h-full bg-black bg-opacity-50 flex justify-center items-center p-6 z-10`} onClick={onCancelClick}>
+      <div className="max-w-[520px] bg-white rounded-2xl p-5 w-full flex flex-col gap-10" onClick={(e) => e.stopPropagation()}>
         {labels.map((label, index) => (
           <div key={index}>
             <div className="text-base font-semibold">{label}</div>
