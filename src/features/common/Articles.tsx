@@ -20,7 +20,7 @@ const Articles = ({ articles }: { articles: Article[] }) => {
                 }}
                 className="text-left flex-1 text-lg font-semibold"
               >
-                {article.headline.main ? article.headline.main : article.headline?.print_headline ? article.headline?.print_headline : "제목 없음"}
+                {article.headline?.main ? article.headline.main : article.headline?.print_headline ? article.headline?.print_headline : "제목 없음"}
               </button>
               <div className="relative w-[30px] flex justify-end items-start">
                 <button
@@ -33,7 +33,7 @@ const Articles = ({ articles }: { articles: Article[] }) => {
               </div>
             </div>
             <div className="flex justify-between mt-2">
-              <div className="font-normal text-[13px] mr-2">{article.byline.original}</div>
+              <div className="font-normal text-[13px] mr-2">{article.byline?.original}</div>
 
               <div className="font-normal text-[13px] text-neutral-dark whitespace-nowrap">{dayjs(article.pub_date).locale("ko").format("YYYY.M.D (ddd)")}</div>
             </div>
